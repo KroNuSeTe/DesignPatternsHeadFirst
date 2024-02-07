@@ -1,4 +1,4 @@
-package ObserverPattern;
+package ObserverPattern.OurObserverPattern;
 
 public interface Subject{ 
     public void registerObserver(Observer o);

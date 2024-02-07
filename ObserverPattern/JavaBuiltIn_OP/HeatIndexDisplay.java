@@ -1,4 +1,4 @@
-package ObserverPattern;
+package ObserverPattern.JavaBuiltIn_OP;
 
 public class HeatIndexDisplay implements Observer, DisplayElement {
 	float heatIndex = 0.0f;

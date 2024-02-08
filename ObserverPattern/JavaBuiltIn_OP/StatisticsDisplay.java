@@ -1,30 +1,37 @@
 package ObserverPattern.JavaBuiltIn_OP;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class StatisticsDisplay implements Observer, DisplayElement {
+	Observable observable;
 	private float maxTemp = 0.0f;
 	private float minTemp = 200;
 	private float tempSum= 0.0f;
 	private int numReadings;
-	private WeatherData weatherData;
 
-	public StatisticsDisplay(WeatherData weatherData) {
-		this.weatherData = weatherData;
-		weatherData.registerObserver(this);
+	public StatisticsDisplay(Observable observable) {
+		this.observable = observable;
+		observable.addObserver(this);
 	}
 
-	public void update(float temp, float humidity, float pressure) {
-		tempSum += temp;
-		numReadings++;
+	public void update(Observable obs, Object arg) {
+		if (obs instanceof WeatherData){
+			WeatherData weatherData = (WeatherData)obs;
+			float actualTemp = weatherData.getTemperature();
+			tempSum += actualTemp;
+			numReadings++;
 
-		if (temp > maxTemp) {
-			maxTemp = temp;
+			if ( actualTemp > maxTemp) {
+				maxTemp = actualTemp;
+			}
+	
+			if (actualTemp < minTemp) {
+				minTemp = actualTemp;
+			}
+			display();
 		}
- 
-		if (temp < minTemp) {
-			minTemp = temp;
-		}
-
-		display();
+		
 	}
 
 	public void display() {

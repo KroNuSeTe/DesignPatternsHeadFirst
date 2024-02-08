@@ -1,17 +1,23 @@
 package ObserverPattern.JavaBuiltIn_OP;
 
-public class HeatIndexDisplay implements Observer, DisplayElement {
-	float heatIndex = 0.0f;
-	private WeatherData weatherData;
+import java.util.Observable;
+import java.util.Observer;
 
-	public HeatIndexDisplay(WeatherData weatherData) {
-		this.weatherData = weatherData;
-		weatherData.registerObserver(this);
+public class HeatIndexDisplay implements Observer, DisplayElement {
+	Observable observable;
+	float heatIndex = 0.0f;
+
+	public HeatIndexDisplay(Observable observable) {
+		this.observable = observable;
+		observable.addObserver(this);
 	}
 
-	public void update(float t, float rh, float pressure) {
-		heatIndex = computeHeatIndex(t, rh);
-		display();
+	public void update(Observable obs, Object arg) {
+		if (obs instanceof WeatherData){
+			WeatherData weatherData = (WeatherData)obs;
+			heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
+			display();
+		}
 	}
 	
 	private float computeHeatIndex(float t, float rh) {

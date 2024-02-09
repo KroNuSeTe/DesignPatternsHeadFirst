@@ -1,0 +1,20 @@
+package DecoratorPattern.StarBuzzSizes;
+
+public class Decaf extends Beverage{
+    public Decaf(){
+        description = "Decaf Coffee";
+    }
+
+    public double cost(){
+        switch (size) {
+            case TALL:
+                return 1.05;
+            case GRANDE:
+                return 1.25;
+            case VENTI:
+                return 1.37;
+            default:
+                return 1.05;
+        }
+    }
+}

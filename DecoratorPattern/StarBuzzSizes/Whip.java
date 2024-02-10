@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class Whip extends CondimentDecorator{
+
     Beverage beverage;
 
     public Whip(Beverage beverage){
@@ -12,15 +13,16 @@ public class Whip extends CondimentDecorator{
     }
 
     public double cost(){
+        double cost = beverage.cost();
         switch (beverage.size) {
             case TALL:
-                return beverage.cost() + .20;
+                return cost + .25;
             case GRANDE:
-                return beverage.cost() + .25;
+                return cost + .30;
             case VENTI:
-                return beverage.cost() + .30;
+                return cost + .35;
             default:
-                return beverage.cost() + .20;
+                return cost + .25;
         }
     }
 }

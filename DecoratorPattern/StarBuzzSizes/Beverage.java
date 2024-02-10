@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public abstract class Beverage{
+
     public enum Size{TALL, GRANDE, VENTI};
     Size size = Size.TALL;
     String description = "Unknown Beberage";
@@ -18,4 +19,5 @@ public abstract class Beverage{
     }
 
     public abstract double cost();
+    
 }

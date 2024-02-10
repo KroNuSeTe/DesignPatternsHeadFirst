@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class HouseBlend extends Beverage{
+
     public HouseBlend(){
         description = "House Blend Coffee";
     }
@@ -17,4 +18,5 @@ public class HouseBlend extends Beverage{
                 return .89;
         }
     }
+    
 }

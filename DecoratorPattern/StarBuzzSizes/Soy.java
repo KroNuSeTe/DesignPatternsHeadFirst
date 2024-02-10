@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class Soy extends CondimentDecorator{
+
     Beverage beverage;
 
     public Soy(Beverage beverage){
@@ -12,15 +13,17 @@ public class Soy extends CondimentDecorator{
     }
 
     public double cost(){
+        double cost = beverage.cost();
         switch (beverage.size) {
             case TALL:
-                return beverage.cost() + .15;
+                return cost + .15;
             case GRANDE:
-                return beverage.cost() + .20;
+                return cost + .20;
             case VENTI:
-                return beverage.cost() + .25;
+                return cost + .25;
             default:
-                return beverage.cost() + .20;
+                return cost + .15;
         }
     }
+    
 }

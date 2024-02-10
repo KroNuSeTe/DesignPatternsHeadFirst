@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class Mocha extends CondimentDecorator{
+
     Beverage beverage;
 
     public Mocha(Beverage beverage){
@@ -12,16 +13,18 @@ public class Mocha extends CondimentDecorator{
     }
 
     public double cost(){
+        double cost = beverage.cost();
         switch (beverage.size) {
             case TALL:
-                return beverage.cost() + .20;
+                return cost + .20;
             case GRANDE:
-                return beverage.cost() + .25;
+                return cost + .25;
             case VENTI:
-                return beverage.cost() + .29;
-                // TODO: with .30 there are floating point problems, use BigDecimal?
+                return cost + .29;
+                // with .30 there are floating point problems, use BigDecimal?
             default:
-                return beverage.cost() + 0.20;
+                return cost + .20;
         }
     }
+
 }

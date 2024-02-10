@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class Decaf extends Beverage{
+
     public Decaf(){
         description = "Decaf Coffee";
     }
@@ -17,4 +18,5 @@ public class Decaf extends Beverage{
                 return 1.05;
         }
     }
+    
 }

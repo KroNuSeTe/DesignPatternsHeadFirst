@@ -1,6 +1,7 @@
 package DecoratorPattern.StarBuzzSizes;
 
 public class Espresso extends Beverage{
+
     public Espresso(){
         description = "Espresso";
     }
@@ -17,4 +18,5 @@ public class Espresso extends Beverage{
             return 1.99;
         }
     }
+    
 }
